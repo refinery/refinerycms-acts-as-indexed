@@ -15,6 +15,10 @@ module Refinery
         end
       end
 
+      config.to_prepare do
+        Decorators.register! ::Refinery::ActsAsIndexed.root
+      end
+
     end
   end
 end
