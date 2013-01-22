@@ -7,7 +7,6 @@ require File.expand_path("../dummy/config/environment", __FILE__)
 
 require 'rspec/rails'
 require 'capybara/rspec'
-require 'capybara/poltergeist'
 
 Rails.backtrace_cleaner.remove_silencers!
 
@@ -19,7 +18,7 @@ RSpec.configure do |config|
 end
 
 # set javascript driver for capybara
-Capybara.javascript_driver = :poltergeist
+Capybara.javascript_driver = :selenium
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories including factories.

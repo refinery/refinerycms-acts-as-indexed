@@ -15,7 +15,6 @@ gem 'acts_as_indexed', :git => 'git://github.com/parndt/acts_as_indexed.git', :b
 
 group :development, :test do
   require 'rbconfig'
-  gem 'poltergeist'
 
   # Database Configuration
   unless ENV['TRAVIS']
