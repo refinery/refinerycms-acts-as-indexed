@@ -11,7 +11,6 @@ git 'git://github.com/refinery/refinerycms.git', :branch => 'refinerycms_acts_as
 end
 
 gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git'
-gem 'acts_as_indexed', :git => 'git://github.com/parndt/acts_as_indexed.git', :branch => 'ruby_1_8_7'
 
 group :development, :test do
   require 'rbconfig'
