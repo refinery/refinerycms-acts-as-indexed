@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-git 'git://github.com/refinery/refinerycms.git', :branch => 'refinerycms_acts_as_indexed' do
+git 'git://github.com/refinery/refinerycms.git' do
   gem 'refinerycms'
 
   group :development, :test do
