@@ -2,15 +2,13 @@ source 'https://rubygems.org'
 
 gemspec
 
-git 'git://github.com/refinery/refinerycms.git' do
+git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
   gem 'refinerycms'
 
   group :development, :test do
     gem 'refinerycms-testing'
   end
 end
-
-gem 'refinerycms-i18n', :git => 'git://github.com/refinery/refinerycms-i18n.git'
 
 group :development, :test do
   require 'rbconfig'
@@ -68,7 +66,6 @@ end
 # Refinery/rails should pull in the proper versions of these
 group :assets do
   gem 'sass-rails'
-  gem 'coffee-rails'
   gem 'uglifier'
 end
 
