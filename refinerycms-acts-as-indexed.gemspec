@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
 
   s.files             = `git ls-files -- app/* lib/*`.split("\n")
 
-  s.add_dependency    'refinerycms-core', '~> 2.1.0'
+  s.add_dependency    'refinerycms-core', '~> 3.0.0.dev'
   s.add_dependency    'acts_as_indexed', '~> 0.8.0'
 end
