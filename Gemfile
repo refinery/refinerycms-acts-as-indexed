@@ -9,58 +9,31 @@ git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
     gem 'refinerycms-testing'
   end
 end
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
+gem 'mime-types', '~> 1.16'
 
-group :development, :test do
-  require 'rbconfig'
+# Database Configuration
+unless ENV['TRAVIS']
+  gem 'activerecord-jdbcsqlite3-adapter', '>= 1.3.0.rc1', platform: :jruby
+  gem 'sqlite3', platform: :ruby
+end
 
-  # Database Configuration
-  unless ENV['TRAVIS']
-    gem 'activerecord-jdbcsqlite3-adapter', :platform => :jruby
-    gem 'sqlite3', :platform => :ruby
-  end
-
-  if !ENV['TRAVIS'] || ENV['DB'] == 'mysql'
-    gem 'activerecord-jdbcmysql-adapter', :platform => :jruby
-    gem 'jdbc-mysql', '= 5.1.13', :platform => :jruby
+if !ENV['TRAVIS'] || ENV['DB'] == 'mysql'
+  group :mysql do
+    gem 'activerecord-jdbcmysql-adapter', '>= 1.3.0.rc1', :platform => :jruby
     gem 'mysql2', :platform => :ruby
   end
+end
 
-  if !ENV['TRAVIS'] || ENV['DB'] == 'postgresql'
-    gem 'activerecord-jdbcpostgresql-adapter', :platform => :jruby
+if !ENV['TRAVIS'] || ENV['DB'] == 'postgresql'
+  group :postgres, :postgresql do
+    gem 'activerecord-jdbcpostgresql-adapter', '>= 1.3.0.rc1', :platform => :jruby
     gem 'pg', :platform => :ruby
   end
+end
 
-  platforms :mswin, :mingw do
-    gem 'win32console'
-    gem 'rb-fchange', '~> 0.0.5'
-    gem 'rb-notifu', '~> 0.0.4'
-  end
-
-  platforms :ruby do
-    unless ENV['TRAVIS']
-      if RbConfig::CONFIG['target_os'] =~ /darwin/i
-        gem 'rb-fsevent', '>= 0.3.9'
-        gem 'growl',      '~> 1.0.3'
-      end
-      if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '>= 0.5.1'
-        gem 'libnotify',  '~> 0.1.3'
-        gem 'therubyracer', '~> 0.9.9'
-      end
-    end
-  end
-
-  platforms :jruby do
-    unless ENV['TRAVIS']
-      if RbConfig::CONFIG['target_os'] =~ /darwin/i
-        gem 'growl',      '~> 1.0.3'
-      end
-      if RbConfig::CONFIG['target_os'] =~ /linux/i
-        gem 'rb-inotify', '>= 0.5.1'
-        gem 'libnotify',  '~> 0.1.3'
-      end
-    end
-  end
+group :test do
+  gem 'launchy'
 end
 
 # Refinery/rails should pull in the proper versions of these
