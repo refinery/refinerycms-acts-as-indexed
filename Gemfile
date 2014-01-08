@@ -11,6 +11,7 @@ git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
 end
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
 gem 'mime-types', '~> 1.16'
+gem 'protected_attributes'
 
 # Database Configuration
 unless ENV['TRAVIS']
