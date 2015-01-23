@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
+git 'https://github.com/refinery/refinerycms', :branch => 'master' do
   gem 'refinerycms'
 
   group :development, :test do
@@ -32,6 +32,8 @@ end
 
 group :test do
   gem 'launchy'
+  gem 'pry'
+  gem 'poltergeist'
 end
 
 # Refinery/rails should pull in the proper versions of these
