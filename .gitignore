@@ -1,3 +1,5 @@
 Gemfile.lock
 spec/dummy
 .bundle
+
+*.log

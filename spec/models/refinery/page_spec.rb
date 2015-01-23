@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module Refinery
-  describe Page do
+  describe Page, :type => :model do
     let(:page_title) { 'RSpec is great for testing too' }
     let(:page) { subject.class.new(:title => page_title, :deletable => true)}
 
@@ -11,7 +11,7 @@ module Refinery
     end
 
     it 'returns all page part content' do
-      page.all_page_part_content.should == "<p>I'm the first page part for this page.</p> <p>Closely followed by the second page part.</p>"
+      expect(page.all_page_part_content).to eq "<p>I'm the first page part for this page.</p> <p>Closely followed by the second page part.</p>"
     end
   end
 end

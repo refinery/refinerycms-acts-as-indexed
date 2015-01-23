@@ -2,16 +2,13 @@ source 'https://rubygems.org'
 
 gemspec
 
-git 'git://github.com/refinery/refinerycms.git', :branch => 'master' do
+git 'https://github.com/refinery/refinerycms', :branch => 'master' do
   gem 'refinerycms'
 
   group :development, :test do
     gem 'refinerycms-testing'
   end
 end
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
-gem 'mime-types', '~> 1.16'
-gem 'protected_attributes'
 
 # Database Configuration
 unless ENV['TRAVIS']
@@ -35,6 +32,8 @@ end
 
 group :test do
   gem 'launchy'
+  gem 'pry'
+  gem 'poltergeist'
 end
 
 # Refinery/rails should pull in the proper versions of these

@@ -1,13 +1,14 @@
 language: ruby
-before_install:
-  - 'if [[ "$TRAVIS_RUBY_VERSION" =~ "jruby" ]] ; then gem update --system ; fi'
-  - gem install bundler
-install:
-  - bundle install --without development
+cache: bundler
+bundler_args: --without development
 before_script:
-  - "bundle exec rake refinery:testing:dummy_app > /dev/null"
+  - "sh -e /etc/init.d/xvfb start"
+  - "bundle exec rake refinery:testing:dummy_app"
 script:
-  - bundle exec rspec spec
+  - "DISPLAY=:99.0 bundle exec rspec spec"
+env:
+  - DB=postgresql
+  - DB=mysql
 notifications:
   email: true
   irc:
@@ -15,20 +16,10 @@ notifications:
     skip_join: true
     channels:
       - "irc.freenode.org#refinerycms"
-  campfire:
-    on_success: always
-    on_failure: always
-    rooms:
-      - secure: "X5X39BTgXacSdc32F8mIjJKPqm5dZzmgZfJ14qYpJeMETTdA5JfByt2uCfU8\njJkkxT+XGWta0bSSlRIHQJO6pK26U94A95VYDX0jNuneKEnsoAsqJ6U0VY6v\nH5oxXMAZ2perP/FH9ZsPNR+ulyFfbMQCeGPJw5AXKZQqzf6qPOI="
-env:
-  - DB=postgresql
-  - DB=mysql
-matrix:
-  allow_failures:
-    - rvm: rbx-19mode
-    - rvm: jruby-19mode
+  webhooks:
+    - https://webhooks.gitter.im/e/b5d48907cdc89864b874
 rvm:
+  - 2.2
+  - 2.1
   - 2.0.0
-  - 1.9.3
-  - rbx-19mode
-  - jruby-19mode
+sudo: false

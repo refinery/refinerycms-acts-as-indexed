@@ -1,14 +1,14 @@
 require "spec_helper"
 
 module Refinery
-  describe "search" do
+  describe "search", :type => :feature do
     refinery_login_with :refinery_user
 
     shared_examples "no result search" do
       it "returns no results" do
         fill_in "search", :with => "yada yada"
         click_button "Search"
-        page.should have_content("Sorry, no results found")
+        expect(page).to have_content("Sorry, no results found")
       end
     end
 
@@ -23,7 +23,7 @@ module Refinery
         click_button "Search"
 
         within ".actions" do
-          page.should have_selector("a[href$='#{image.image_name}']")
+          expect(page).to have_selector("a[href*='#{image.image_name}']")
         end
       end
 
@@ -39,7 +39,7 @@ module Refinery
       it "returns found resource" do
         fill_in "search", :with => "refinery"
         click_button "Search"
-        page.should have_content("Refinery Is Awesome.txt")
+        expect(page).to have_content("Refinery Is Awesome.txt")
       end
 
       it_behaves_like "no result search"
@@ -54,7 +54,7 @@ module Refinery
       it "returns found page" do
         fill_in "search", :with => "ugis"
         click_button "Search"
-        page.should have_content("Ugis Ozols")
+        expect(page).to have_content("Ugis Ozols")
       end
 
       it_behaves_like "no result search"
@@ -69,7 +69,7 @@ module Refinery
       it "returns found user" do
         fill_in "search", :with => "ugis"
         click_button "Search"
-        page.should have_content("ugis")
+        expect(page).to have_content("ugis")
       end
 
       it_behaves_like "no result search"
