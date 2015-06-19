@@ -3,7 +3,7 @@
     :name => 'search',
     :value => params[:search],
     :title =>       t('search_input_help', :scope => 'refinery.admin.search', :query => h(params[:search])).html_safe,
-    :placeholder => t('search_input_notice', :scope => 'refinery.admin.search', :query => h(params[:search])).html_safe
+    :placeholder => t('search_input_placeholder', :scope => 'refinery.admin.search', :query => h(params[:search])).html_safe
     %>
   <%= hidden_field :visual_editor, nil, :name => 'visual_editor', :id => nil, :value => true  if params[:visual_editor].presence %>
   <%= hidden_field :dialog, nil, :name => 'dialog', :id => nil, :value => true if from_dialog? %>
