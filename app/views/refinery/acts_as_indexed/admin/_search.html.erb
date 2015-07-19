@@ -1,12 +1,12 @@
 <form method='GET' action='<%= url %>' class='search_form'>
-  <%= text_field :search, nil, :id => 'search', :type => 'search',
-    :name => 'search',
-    :value => params[:search],
-    :title =>       t('search_input_help', :scope => 'refinery.admin.search', :query => h(params[:search])).html_safe,
-    :placeholder => t('search_input_placeholder', :scope => 'refinery.admin.search', :query => h(params[:search])).html_safe
+  <%= text_field :search, nil, id: 'search', type: 'search',
+    name: 'search',
+    value: params[:search],
+    title: t('help', scope: 'refinery.admin.search.input', query: h(params[:search])).html_safe,
+    placeholder: t('placeholder', scope: 'refinery.admin.search.input', query: h(params[:search])).html_safe
     %>
-  <%= hidden_field :visual_editor, nil, :name => 'visual_editor', :id => nil, :value => true  if params[:visual_editor].presence %>
-  <%= hidden_field :dialog, nil, :name => 'dialog', :id => nil, :value => true if from_dialog? %>
-  <%= hidden_field :callback, nil, :name => 'callback', :id => nil, :value => @callback if @callback.presence %>
-  <%= submit_tag t('button_text', :scope => 'refinery.admin.search'), :name => nil %>
+  <%= hidden_field :visual_editor, nil, name: 'visual_editor', id: nil, value: true if params[:visual_editor].presence %>
+  <%= hidden_field :dialog, nil, name: 'dialog', id: nil, value: true if from_dialog? %>
+  <%= hidden_field :callback, nil, name: 'callback', id: nil, value: @callback if @callback.presence %>
+  <%= submit_tag t('button_text', scope: 'refinery.admin.search'), name: nil %>
 </form>
