@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-acts-as-indexed}
-  s.version           = %q{2.0.1}
+  s.version           = %q{3.0.0}
   s.description       = %q{An extension to handle the integration of Refinery CMS and ActsAsIndexed}
   s.summary           = %q{Refinery CMS ActsAsIndexed integration plugin}
   s.email             = %q{info@refinerycms.com}
@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
   s.add_dependency    'refinerycms-core', ['>= 3.0.0', '< 4.0']
   s.add_dependency    'acts_as_indexed', '~> 0.8.0'
   s.add_dependency    'decorators', '~> 2.0.0'
+  s.add_dependency    'stringex', '~> 2.5.2'
 end
