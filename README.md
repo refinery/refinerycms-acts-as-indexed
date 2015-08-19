@@ -14,10 +14,19 @@ Refinery CMS Acts As Indexed is the [Acts As Indexed](https://github.com/dougal/
 Open up your ``Gemfile`` and add at the bottom this line:
 
 ```ruby
-gem 'refinerycms-acts-as-indexed', '~> 2.0.1'
+gem 'refinerycms-acts-as-indexed', '~> 3.0.0'
 ```
 
 Now run `bundle install`.
+
+## Upgrade
+
+When upgrading to a new version of `refinerycms-acts-as-indexed` it is recommended you delete the index directory and allow it to be rebuilt.
+
+## Contribute
+
+Please see the [contributing.md](contributing.md) file for instructions.
+
 
 ## More Information
 * Check out our [Website](http://refinerycms.com/)
