@@ -2,7 +2,6 @@ require "spec_helper"
 
 module Refinery
   describe "search", :type => :feature do
-    refinery_login_with :refinery_user
 
     shared_examples "no result search" do
       it "returns no results" do
@@ -39,7 +38,7 @@ module Refinery
       it "returns found resource" do
         fill_in "search", :with => "refinery"
         click_button "Search"
-        expect(page).to have_content("Refinery Is Awesome.txt")
+        expect(page).to have_content("Refinery Is Awesome")
       end
 
       it_behaves_like "no result search"
@@ -55,21 +54,6 @@ module Refinery
         fill_in "search", :with => "ugis"
         click_button "Search"
         expect(page).to have_content("Ugis Ozols")
-      end
-
-      it_behaves_like "no result search"
-    end
-
-    describe "users extension" do
-      before do
-        FactoryGirl.create(:user, :username => "ugis")
-        visit refinery.admin_users_path
-      end
-
-      it "returns found user" do
-        fill_in "search", :with => "ugis"
-        click_button "Search"
-        expect(page).to have_content("ugis")
       end
 
       it_behaves_like "no result search"
