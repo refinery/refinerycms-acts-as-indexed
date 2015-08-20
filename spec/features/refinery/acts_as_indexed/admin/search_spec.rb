@@ -50,8 +50,14 @@ module Refinery
         visit refinery.admin_pages_path
       end
 
-      it "returns found page" do
+      it "returns found page without accents in the query" do
         fill_in "search", :with => "Telephone"
+        click_button "Search"
+        expect(page).to have_content("Téléphone")
+      end
+
+      it "returns found page with accents in the query" do
+        fill_in "search", :with => "Téléphone"
         click_button "Search"
         expect(page).to have_content("Téléphone")
       end
