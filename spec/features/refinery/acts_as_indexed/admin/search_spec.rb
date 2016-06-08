@@ -46,14 +46,20 @@ module Refinery
 
     describe "pages extension" do
       before do
-        FactoryGirl.create(:page, :title => "Ugis Ozols")
+        FactoryGirl.create(:page, :title => "Téléphone")
         visit refinery.admin_pages_path
       end
 
-      it "returns found page" do
-        fill_in "search", :with => "ugis"
+      it "returns found page without accents in the query" do
+        fill_in "search", :with => "Telephone"
         click_button "Search"
-        expect(page).to have_content("Ugis Ozols")
+        expect(page).to have_content("Téléphone")
+      end
+
+      it "returns found page with accents in the query" do
+        fill_in "search", :with => "Téléphone"
+        click_button "Search"
+        expect(page).to have_content("Téléphone")
       end
 
       it_behaves_like "no result search"
