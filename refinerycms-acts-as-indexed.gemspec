@@ -15,6 +15,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency    'refinerycms-core', ['>= 3.0.0', '< 5.0']
   s.add_dependency    'acts_as_indexed', '~> 0.8.0'
-  s.add_dependency    'decorators', '~> 2.0.0'
+  s.add_dependency    'decorators', '~> 2.0'
   s.add_dependency    'stringex', '~> 2.5.2'
+
+  s.cert_chain  = ['certs/parndt.pem']
+  if $0 =~ /gem\z/ && ARGV.include?("build") && ARGV.include?(__FILE__)
+    s.signing_key = File.expand_path("~/.ssh/gem-private_key.pem")
+  end
 end
