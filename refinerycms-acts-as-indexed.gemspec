@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform          = Gem::Platform::RUBY
   s.name              = %q{refinerycms-acts-as-indexed}
-  s.version           = %q{3.0.0}
+  s.version           = %q{4.0.0}
   s.description       = %q{An extension to handle the integration of Refinery CMS and ActsAsIndexed}
   s.summary           = %q{Refinery CMS ActsAsIndexed integration plugin}
   s.email             = %q{gems@p.arndt.io}
