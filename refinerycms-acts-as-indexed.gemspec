@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
 
   s.files             = `git ls-files -- app/* lib/*`.split("\n")
 
-  s.add_dependency    'refinerycms-core', ['>= 3.0.0', '< 5.0']
-  s.add_dependency    'acts_as_indexed', '~> 0.8.0'
+  s.add_dependency    'refinerycms-core', ['>= 4.0.0', '< 5.0']
+  s.add_dependency    'acts_as_indexed', '~> 0.8'
   s.add_dependency    'decorators', '~> 2.0'
-  s.add_dependency    'stringex', '~> 2.5.2'
+  s.add_dependency    'stringex', '~> 2.5'
 
   s.cert_chain  = ['certs/parndt.pem']
   if $0 =~ /gem\z/ && ARGV.include?("build") && ARGV.include?(__FILE__)
