@@ -4,8 +4,11 @@ require 'stringex_lite'
 begin
   Refinery::Page.class_eval do
     # Docs for acts_as_indexed https://github.com/dougal/acts_as_indexed
-    acts_as_indexed :fields => [:ascii_title, :meta_description,
-                                :menu_title, :browser_title, :ascii_all_page_part_content]
+    unless self.respond_to? :with_query
+      acts_as_indexed :fields => [:ascii_title, :meta_description,
+                                  :menu_title, :browser_title,
+                                  :ascii_all_page_part_content]
+    end
 
     # Used to index all the content on this page so it can be easily searched.
     def all_page_part_content
