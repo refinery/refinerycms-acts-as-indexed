@@ -1,9 +1,15 @@
 language: ruby
+sudo: false
+addons:
+  apt:
+    packages:
+      - chromium-chromedriver
 cache: bundler
 bundler_args: --without development
 before_script:
-  - "sh -e /etc/init.d/xvfb start"
-  - "bundle exec rake refinery:testing:dummy_app"
+  - export RETRY_COUNT=3
+  - export PATH=$PATH:/usr/lib/chromium-browser/
+  - bin/rake refinery:testing:dummy_app
 script:
   - "DISPLAY=:99.0 bundle exec rspec spec"
 env:
@@ -11,14 +17,8 @@ env:
   - DB=mysql
 notifications:
   email: true
-  irc:
-    use_notice: true
-    skip_join: true
-    channels:
-      - "irc.freenode.org#refinerycms"
   webhooks:
     - https://webhooks.gitter.im/e/b5d48907cdc89864b874
 rvm:
   - 2.5
   - 2.4
-sudo: false
