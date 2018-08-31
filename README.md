@@ -6,15 +6,14 @@ Refinery CMS Acts As Indexed is the [Acts As Indexed](https://github.com/dougal/
 
 ## Requirements
 
-* Refinery CMS version 3.0.0 or above.
-* To use Refinery `>= 2.1.x` use the refinerycms-acts-as-indexed [1-0-stable](https://github.com/refinery/refinerycms-acts-as-indexed/tree/1-0-stable) branch.
+* Refinery CMS version 4.0.0 or above.
 
 ## Install
 
 Open up your ``Gemfile`` and add at the bottom this line:
 
 ```ruby
-gem 'refinerycms-acts-as-indexed', '~> 3.0.0'
+gem 'refinerycms-acts-as-indexed', '~> 4.0.0'
 ```
 
 Now run `bundle install`.
