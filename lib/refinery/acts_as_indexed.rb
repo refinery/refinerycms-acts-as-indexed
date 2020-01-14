@@ -1,3 +1,8 @@
+require 'acts_as_indexed'
+require 'stringex_lite'
+require 'refinery/core'
+require 'refinery/acts_as_indexed'
+
 module Refinery
   module ActsAsIndexed
     class << self
