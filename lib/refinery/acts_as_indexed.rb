@@ -1,3 +1,7 @@
+require 'acts_as_indexed'
+require 'stringex_lite'
+require 'refinery/acts_as_indexed/engine'
+
 module Refinery
   module ActsAsIndexed
     class << self
@@ -8,4 +12,4 @@ module Refinery
   end
 end
 
-require 'refinery/acts_as_indexed/engine'
+
