@@ -1,7 +1,6 @@
 require 'acts_as_indexed'
 require 'stringex_lite'
-require 'refinery/core'
-require 'refinery/acts_as_indexed'
+require 'refinery/acts_as_indexed/engine'
 
 module Refinery
   module ActsAsIndexed
@@ -13,4 +12,4 @@ module Refinery
   end
 end
 
-require 'refinery/acts_as_indexed/engine'
+
