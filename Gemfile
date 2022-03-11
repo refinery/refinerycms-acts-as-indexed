@@ -13,19 +13,19 @@ end
 gem 'listen'
 
 # Database Configuration
-unless ENV['TRAVIS']
+unless ENV['CI']
   gem 'activerecord-jdbcsqlite3-adapter', '>= 1.3.0.rc1', platform: :jruby
   gem 'sqlite3', platform: :ruby
 end
 
-if !ENV['TRAVIS'] || ENV['DB'] == 'mysql'
+if !ENV['CI'] || ENV['DB'] == 'mysql'
   group :mysql do
     gem 'activerecord-jdbcmysql-adapter', '>= 1.3.0.rc1', platform: :jruby
     gem 'mysql2', platform: :ruby
   end
 end
 
-if !ENV['TRAVIS'] || ENV['DB'] == 'postgresql'
+if !ENV['CI'] || ENV['DB'] == 'postgresql'
   group :postgres, :postgresql do
     gem 'activerecord-jdbcpostgresql-adapter', '>= 1.3.0.rc1', platform: :jruby
     gem 'pg', platform: :ruby
