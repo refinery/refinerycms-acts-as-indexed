@@ -36,9 +36,9 @@ module Refinery
       end
 
       it "returns found resource" do
-        fill_in "search", :with => "refinery"
+        fill_in "search", :with => "cape"
         click_button "Search"
-        expect(page).to have_content("Refinery Is Awesome")
+        expect(page).to have_content("Cape Town Tide Table")
       end
 
       it_behaves_like "no result search"
